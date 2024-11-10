@@ -1,2 +1,2 @@
-# More-statistics-
+# More statistics!
 мой проект для сбора статистики с журнала в колледже
