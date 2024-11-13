@@ -1,2 +1,2 @@
-login_journal = 'Dinte_nh20'
-password_journal = 'Fn0354Ag'
+login_journal = ''
+password_journal = ''
