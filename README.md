@@ -16,15 +16,15 @@
 
 >На текущем этапе база данных сохраняется вручную, но в дальнейшем будет добавлена автоматизация.
 
+# Пример Работы
+![This is an alt text.](https://i.imgur.com/hxpnF7F.png "This is a sample image.")
+
 # Небольшое обновление 0.1.a
 - «Добавлена возможность просмотра количества баллов, полученных за день»
 - «Реализована функция отображения дневного прироста баллов»
 - «Теперь можно просматривать дневную статистику баллов»
 - «Обновлено: добавлен просмотр баллов, набранных за день»
 ![This is an alt text.](https://i.imgur.com/nhmC2Ti.png "This is a sample image.")
-
-![This is an alt text.](https://i.imgur.com/KwhPEO9.jpeg "This is a sample image.")
-
 ## Инструкция!
 
 Для работы с проектом вам потребуется установить `Python`, несколько библиотек и графический фреймворк `flet`.
@@ -65,8 +65,9 @@ password_journal = ''
 
 - Запускаем файл `leader_data_view.py`. Посмотрите результат.
 
-# Пример Работы
-![This is an alt text.](https://i.imgur.com/hxpnF7F.png "This is a sample image.")
+
+
+![This is an alt text.](https://i.imgur.com/KwhPEO9.jpeg "This is a sample image.")
 
 
 
