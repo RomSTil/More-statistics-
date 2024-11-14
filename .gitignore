@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+jsons/
+leaderboard.db
+settings.py
