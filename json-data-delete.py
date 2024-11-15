@@ -1,25 +1,36 @@
 import sqlite3
 import datetime
 
-# Подключение к базе данных
+class DeleteDate:
+    def __init__(self, conn, cursor, current_date):
+        self.conn = conn
+        self.cursor = cursor
+        self.current_date = current_date
+
+    def delete_in_db(self):
+        """ Удаление информации за сегодняшнюю дату """
+        try:
+            self.cursor.execute('DELETE FROM leader_data WHERE date = ?', (self.current_date,))
+            self.conn.commit()
+            deleted_rows = self.cursor.rowcount
+            
+            if deleted_rows > 0:
+                return f"удалены все данные за {self.current_date}"
+            else:
+                return f"Записей за {self.current_date} нет"
+        except sqlite3.DatabaseError as e:
+            return f"ошибка базы данных: {e}"
+        
+    def __del__(self):
+        if self.conn:
+            self.conn.close()
+
+
+# Подключеение
 conn = sqlite3.connect('leaderboard.db')
 cursor = conn.cursor()
 
-# Определение сегодняшней даты
 current_date = datetime.date.today()
 
-# Удаление записей за сегодняшний день
-cursor.execute('DELETE FROM leader_data WHERE date = ?', (current_date,))
-
-# Подтверждение изменений
-conn.commit()
-
-# Проверка, что данные удалены
-deleted_rows = cursor.rowcount
-if deleted_rows > 0:
-    print(f"Данные за {current_date} успешно удалены.")
-else:
-    print(f"Записей за {current_date} не найдено.")
-
-# Закрытие соединения
-conn.close()
+obj = DeleteDate(conn, cursor, current_date)
+print(obj.delete_in_db())
