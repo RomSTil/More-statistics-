@@ -1,3 +1,21 @@
+#                        
+#　　　　　　　　　　_,.. -──- ､,
+#　　　　　　　　,　'" 　 　　　 　　 `ヽ.
+#　　　　　　 ／/¨7__　　/ 　 　 i　 _厂廴
+#　　　　　 /￣( ノ__/　/{　　　　} ｢　（_冫}
+#　　　　／￣l＿// 　/-|　 ,!　 ﾑ ￣|＿｢ ＼＿_
+#　　. イ　 　 ,　 /!_∠_　|　/　/_⊥_,ﾉ ハ　 イ 
+#　　　/ ／ / 　〃ん心 ﾚ'|／　ｆ,心 Y　i ＼_＿＞　
+#　 ∠イ 　/　 　ﾄ弋_ツ　　 　 弋_ﾂ i　 |　 | ＼
+#　 _／ _ノ|　,i　⊂⊃　　　'　　　⊂⊃ ./　 !､＿ン
+#　　￣　　∨|　,小、　　` ‐ ' 　　 /|／|　/
+#　 　 　 　 　 Y　|ﾍ＞ 、 ＿ ,.　イﾚ|　 ﾚ'
+#　　　　　　 r'.| 　|;;;入ﾞ亠―亠' );;;;;! 　|､
+#　　　　　 ,ノ:,:|.　!|く　__￣￣￣__У　ﾉ|:,:,ヽ
+#　　　　　(:.:.:.:ﾑ人!ﾍ　 　` ´ 　　 厂|ノ:.:.:丿 by @RomSTil
+"""LeaderboardScraper"""
+
+
 import os
 import time
 import datetime
@@ -9,8 +27,8 @@ from bs4 import BeautifulSoup
 from settings import password_journal, login_journal
 
 class LeaderboardScraper:
-    def __init__(self, login, password, folder_path='jsons'):
-        self.login = login
+    def __init__(self, login: str, password: str, folder_path='jsons') -> None:
+        self.login = login 
         self.password = password
         self.folder_path = folder_path
         self.driver = webdriver.Chrome()  # Настройка драйвера
@@ -20,7 +38,7 @@ class LeaderboardScraper:
         self.full_name_lst = []
         self.points_lst = []
 
-    def authenticate(self):
+    def authenticate(self) -> None:
         """Метод для авторизации на сайте"""
         try:
             self.driver.get("https://journal.top-academy.ru/ru/auth/login/index")
@@ -42,7 +60,7 @@ class LeaderboardScraper:
         except Exception as e:
             print(f"Неизвестная ошибка при авторизации: {e}")
 
-    def extract_data(self):
+    def extract_data(self) -> None:
         """Метод для извлечения данных с страницы"""
         try:
             self.driver.get("https://journal.top-academy.ru/ru/main/dashboard/page/index")
@@ -92,7 +110,7 @@ class LeaderboardScraper:
         except Exception as e:
             print(f"Ошибка при сохранении данных в файл: {e}")
 
-    def close_driver(self):
+    def close_driver(self) -> None:
         """Метод для закрытия драйвера"""
         self.driver.quit()
         print("Драйвер закрыт.")
