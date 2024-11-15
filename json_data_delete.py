@@ -1,3 +1,5 @@
+""" DeleteDate """
+
 import sqlite3
 import datetime
 
@@ -33,4 +35,6 @@ cursor = conn.cursor()
 current_date = datetime.date.today()
 
 obj = DeleteDate(conn, cursor, current_date)
-print(obj.delete_in_db())
+
+if "__main__" == __name__:
+    obj.delete_in_db()

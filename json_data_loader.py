@@ -1,3 +1,5 @@
+""" LoadData """
+
 import json
 import sqlite3
 import datetime
@@ -16,7 +18,7 @@ class LoadData:
         self.points = points
 
     def setup_leader_data_table(self):
-        """ проверку на существования бд в случаее отсутствия """
+        """ проверка на существования бд в случаее отсутствия """
         try:
             self.cursor.execute(''' 
             CREATE TABLE IF NOT EXISTS leader_data (
@@ -72,4 +74,6 @@ file_path = f"jsons/{file_name}"
 # Теперь создание объекта LoadData
 obj = LoadData(conn, cursor, current_date, file_name, file_path, None, None, None)
 
-obj.main()
+
+if "__main__" == __name__:
+    obj.main()
