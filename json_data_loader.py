@@ -61,7 +61,7 @@ class LoadData:
     def main(self):
         self.setup_leader_data_table()
         self.load_in_db()
-        self.conn.commit()  # Не забудьте закоммитить изменения в базу данных
+        self.conn.commit()  
         self.conn.close()
 
 conn = sqlite3.connect('leaderboard.db')
@@ -71,7 +71,7 @@ current_date  = datetime.date.today()
 file_name = f"leader_data_{current_date.strftime('%d')}_{current_date.strftime('%B')}_{current_date.strftime('%Y')}.json"
 file_path = f"jsons/{file_name}"
 
-# Теперь создание объекта LoadData
+
 obj = LoadData(conn, cursor, current_date, file_name, file_path, None, None, None)
 
 
