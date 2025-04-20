@@ -22,7 +22,7 @@ class DownloadHandler(BaseHTTPRequestHandler):
                     self.send_response(200)
                     self.send_header('Content-type', 'application/json')
                     self.send_header('Content-Disposition', 
-                                   f'attachment; filename="{self.json_file_path.name}"')
+                                   f'attachment; filename="{os.path.basename(self.json_file_path)}"')
                     self.end_headers()
                     self.wfile.write(f.read())
             except FileNotFoundError:
@@ -109,8 +109,12 @@ class JSONFileServer:
         print(f"Для скачивания файла откройте: {self.url}")
         print("Нажмите Ctrl+C для остановки...")
         
-        handler = lambda *args: DownloadHandler(*args, json_file_path=self.json_file_path)
-        server = HTTPServer((self.local_ip, self.port), handler)
+        # Убедимся, что передаётся полный путь к файлу
+        handler_class = lambda *args: DownloadHandler(
+            *args, 
+            json_file_path=self.json_file_path.name  # Только имя файла (т.к. мы уже перешли в нужную директорию)
+        )
+        server = HTTPServer(('0.0.0.0', self.port), handler_class)
         
         try:
             server.serve_forever()
@@ -128,11 +132,3 @@ class JSONFileServer:
         self._open_qr_code()
         self._start_http_server()
 
-
-if __name__ == "__main__":
-    # Пример использования
-    server = JSONFileServer(
-        json_file_path="json/leader_data_09_April_2025.json",
-        port=8000
-    )
-    server.run()
