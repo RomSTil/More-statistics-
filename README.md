@@ -23,4 +23,4 @@
 >Легкость в реализации и использовании для конечного пользователя.
 
 
-![](//placehold.co/200x100)
+![This is an alt text.](https://i.imgur.com/hxpnF7F.png "This is a sample image.")
