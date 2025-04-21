@@ -23,4 +23,4 @@
 >Легкость в реализации и использовании для конечного пользователя.
 
 
-![This is an alt text.]([https://i.imgur.com/hxpnF7F.png](https://imgur.com/NpgCJu9))
+![This is an alt text.]([https://i.imgur.com/hxpnF7F.png])
