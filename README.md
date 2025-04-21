@@ -30,7 +30,7 @@
 >  
 ![image](https://github.com/user-attachments/assets/62a36151-6401-4f0b-87d3-4873c54040fa)   
 
-> окно для просмтра данных за числа которыее есть в базе данных
+> окно для просмтра данных за числа которые есть в базе данных
 >  
 ![image](https://github.com/user-attachments/assets/86bdf093-3c70-48a8-bd53-5ff8d93d27ef)
 
